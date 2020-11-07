@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -x 
 
 echo "Welcome Arithmetic Computation And Sorting"
 
@@ -41,3 +41,20 @@ do
 done
 
 echo "${array[@]}"
+
+echo "Sort the Computation Results In Descending Order"
+
+for(( i=0; i<${#array[@]}; i++ ))
+do
+	for(( j=0; j<${#array[@]}-1; j++ ))
+	do
+		if [[ ${array[j+1]} -gt ${array[j]} ]]
+		then
+			temp=${array[j]}
+			array[j]=${array[j+1]}
+			array[j+1]=$temp
+		fi
+	done
+done
+
+echo "Sorted Array -" ${array[@]}
